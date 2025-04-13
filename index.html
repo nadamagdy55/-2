@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>هدوءي</title>
+  <!-- إضافة رابط الخط من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">  <!-- ربط ملف CSS -->
+</head>
+<body>
+
+  <h1>🌿 مرحبًا بك في هدوءي 🌿</h1>
+  
+  <div class="quote" id="quoteBox">"كل الأشياء ستمر.. خذ نفسًا واهدأ."</div>
+
+  <br>
+
+  <button onclick="getNewQuote()">🌟 اقتباس جديد</button>
+  <button onclick="toggleSound('rain')">🌧️ صوت المطر</button>
+  <button onclick="toggleSound('birds')">🐦 صوت العصافير</button>
+  <button onclick="toggleSound('wind')">💨 صوت الرياح</button>
+  <button onclick="toggleSound('ocean')">🌊 صوت البحر</button>
+  <button onclick="toggleSound('fire')">🔥 صوت الموقد</button>
+
+  <audio id="rainSound" loop>
+    <source src="rain.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="birds" loop>
+    <source src="birds.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="wind" loop>
+    <source src="wind.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="ocean" loop>
+    <source src="ocean.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="fire" loop>
+    <source src="fire.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const quotes = [
+      "كل الأشياء ستمر.. خذ نفسًا واهدأ.",
+      "لا بأس أن تستريح قليلاً.",
+      "السلام الداخلي لا يُشترى، بل يُزرع.",
+      "تذكّر، أنت تستحق الراحة والهدوء.",
+      "الأمان يبدأ من الداخل.. من قلبك."
+    ];
+
+    function getNewQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quoteBox").innerText = `"${quotes[randomIndex]}"`;
+    }
+
+    function toggleSound(soundType) {
+      const sound = document.getElementById(soundType);
+      if (sound.paused) {
+        sound.play();
+      } else {
+        sound.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
+
